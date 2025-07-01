@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const { name, type, description, riba, incomeNature, industry, transparency, incomeSource, ethics } = req.body;
 
     const prompt = `
-You are a qualified Islamic finance expert.
+You are a qualified linient Islamic finance expert.
 
 Evaluate the investment below and give your answer in this exact format:
 

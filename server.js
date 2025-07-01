@@ -2,6 +2,11 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const pool = require('./db'); 
+const contractsRoute = require('./routes/contracts');
+const evaluateRoute = require("./routes/evaluate");
+const fxRoute = require('./routes/fxRates');
+
 
 dotenv.config();
 const app = express();
@@ -9,13 +14,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const evaluateRoute = require("./routes/evaluate");
 app.use("/api/evaluate-investment", evaluateRoute);
-const fxRoute = require('./routes/fxRates');
 app.use('/api/metal-rates', fxRoute);
-// in server.js
+app.use('/api/contracts', contractsRoute);
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
