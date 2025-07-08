@@ -2,11 +2,11 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const pool = require('./db'); 
+// const pool = require('./db'); 
 const contractsRoute = require('./routes/contracts');
 const evaluateRoute = require("./routes/evaluate");
 const fxRoute = require('./routes/fxRates');
-
+const authRoutes = require('./routes/auth');
 
 dotenv.config();
 const app = express();
@@ -17,6 +17,7 @@ app.use(express.json());
 app.use("/api/evaluate-investment", evaluateRoute);
 app.use('/api/metal-rates', fxRoute);
 app.use('/api/contracts', contractsRoute);
+app.use('/api/auth', authRoutes);
 
 
 
