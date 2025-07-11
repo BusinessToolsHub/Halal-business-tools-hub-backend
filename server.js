@@ -20,7 +20,7 @@ app.use('/api/contracts', contractsRoute);
 app.use('/api/auth', authRoutes);
 
 
-router.get('/ping', (req, res) => {
+app.get('/ping', (req, res) => {
   console.log('Ping received at', new Date().toISOString());
   res.status(200).send('pong');
 });
