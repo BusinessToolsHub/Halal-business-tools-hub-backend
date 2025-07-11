@@ -24,6 +24,10 @@ app.get('/ping', (req, res) => {
   console.log('Ping received at', new Date().toISOString());
   res.status(200).send('pong');
 });
+app.get('/', (req, res) => {
+  res.status(200).send('Halal Business Tools Hub backend is live 🚀');
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
