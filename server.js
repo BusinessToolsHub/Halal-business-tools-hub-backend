@@ -20,6 +20,10 @@ app.use('/api/contracts', contractsRoute);
 app.use('/api/auth', authRoutes);
 
 
+router.get('/ping', (req, res) => {
+  console.log('Ping received at', new Date().toISOString());
+  res.status(200).send('pong');
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

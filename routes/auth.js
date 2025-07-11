@@ -180,7 +180,8 @@ router.post('/reset-password', async (req, res) => {
     }
 
     const otpCreatedAt = new Date(otpEntry.created_at).getTime();
-    const localNowAdjusted = Date.now() - (5 * 60 * 60 * 1000); // UTC+5 adjustment
+    // const localNowAdjusted = Date.now() - (5 * 60 * 60 * 1000); // UTC+5 adjustment
+    const localNowAdjusted = Date.now();
     const otpAge = localNowAdjusted - otpCreatedAt;
 
     if (otpAge > 5 * 60 * 1000) {
