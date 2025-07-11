@@ -19,13 +19,13 @@ pool.on('error', (err) => {
 });
 
 // ✅ 🔁 Keep pool alive (Supabase kills idle clients)
-setInterval(async () => {
-  try {
-    await pool.query('SELECT 1'); // Very lightweight
-    console.log('🔄 Pool keep-alive ping at', new Date().toISOString());
-  } catch (err) {
-    console.error('❌ Pool ping failed:', err.message);
-  }
-}, 30000); // 30 seconds
+// setInterval(async () => {
+//   try {
+//     await pool.query('SELECT 1'); // Very lightweight
+//     console.log('🔄 Pool keep-alive ping at', new Date().toISOString());
+//   } catch (err) {
+//     console.error('❌ Pool ping failed:', err.message);
+//   }
+// }, 30000); // 30 seconds
 
 module.exports = pool;
